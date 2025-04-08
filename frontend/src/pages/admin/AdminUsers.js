@@ -48,7 +48,7 @@ const AdminUsers = () => {
       setLoading(true);
       setError('');
       
-      const response = await axios.get('/api/users');
+      const response = await axios.get('/api/admin/users');
       setUsers(response.data);
     } catch (err) {
       setError('Failed to load users. Please try again later.');
@@ -125,7 +125,7 @@ const AdminUsers = () => {
       let message = '';
       
       if (dialogMode === 'create') {
-        response = await axios.post('/api/users', userData);
+        response = await axios.post('/api/admin/users', userData);
         message = 'User created successfully!';
       } else if (dialogMode === 'edit') {
         // Remove password if empty (not changing password)
@@ -135,10 +135,10 @@ const AdminUsers = () => {
           delete dataToSend.password;
         }
         
-        response = await axios.put(`/api/users/${selectedUser.id}`, dataToSend);
+        response = await axios.put(`/api/admin/users/${selectedUser.id}`, dataToSend);
         message = 'User updated successfully!';
       } else if (dialogMode === 'delete') {
-        await axios.delete(`/api/users/${selectedUser.id}`);
+        await axios.delete(`/api/admin/users/${selectedUser.id}`);
         message = 'User deleted successfully!';
       }
       

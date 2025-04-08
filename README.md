@@ -99,6 +99,3 @@ spring.data.mongodb.database=parking_management
 - `pages`: Application pages
 - `pages/admin`: Admin-specific pages
 
-## License
-
-This project is licensed under the MIT License.
